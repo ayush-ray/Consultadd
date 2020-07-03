@@ -1,9 +1,30 @@
 {% block nav %}
+{% load static %}
 <div id="navbar">
-    <ul id="nav">
-        <li><a href="/">Home</a></li>
-        <li><a href="/">About</a></li>
-        <li><a href="/">Contact</a></li>
-    </ul>
+    <div id="navbar2">
+        <ul id="nav">
+            <li>
+                <div class="dropdown">
+                    <button class="dropbtn">DEPARTMENTS   V</button>
+                  <div class="dropdown-content">
+                      <a href="/">Link 1</a>
+                      <a href="/">Link 2</a>
+                      <a href="/">Link 3</a>
+                  </div>
+                </div>
+            </li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/">About</a></li>
+            <li><a href="/">Contact</a></li>
+            <li style="padding-left: 100px"><input type="text" placeholder="   Search.." style="height: 40px;width: 500px; font-family: Bahnschrift; border-radius: 25px; "></li>
+            <li style="padding-left: 100px; color: white;">
+                <a href="/">
+                    <img src="{% static "resources/img/cart_logo.jfif" %}" style="width: 19px; height: 19px">
+                    &nbspMy Cart
+                </a>
+            </li>
+        </ul>
+
+    </div>
 </div>
 {% endblock %}
