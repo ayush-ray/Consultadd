@@ -28,9 +28,9 @@
             <div class="login-form">
                 <button class="btn login-submit" type="submit">Login!</button>
             </div>
-            <div class="register">
-                <button class="btn register" type="submit">Register Now</button>
-            </div>
         </form>
+        <div class="register">
+            <button class="btn register" type="submit" onclick="location.href='{% url 'login:register' %}'">Register Now</button>
+        </div>
     </div>
 {%  endblock %}
