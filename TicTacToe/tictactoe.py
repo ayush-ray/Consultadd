@@ -23,9 +23,9 @@ def tictactoe():
         print(board_dict)
         player = (i % 2) + 1
         print("Player ", player, " turn(Enter position to mark): ")
-        position = input()
+        position = str(input())
         while board_dict[position] != ' ':
-            position = input("Position already taken. Please select another position")
+            position = str(input("Position already taken. Please select another position"))
 
         if player == 1:
             board_dict[position] = 'X'
