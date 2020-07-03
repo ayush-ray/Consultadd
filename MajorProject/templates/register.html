@@ -1,0 +1,38 @@
+{%  extends 'base.html' %}
+{% block title %}Login{% endblock %}
+
+{%  block content %}
+    <div class = "register-content">
+        <form method="POST" action="{% url 'login:login' %}">
+            <fieldset class="register-form">
+                <legend>Register</legend>
+                {% csrf_token %}
+                <table class="table">
+                    <tr>
+                        <td><label for="id_fname">First Name: </label></td>
+                        <td><input id="id_fname" name="firstname"
+                                   type="text" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="id_lname">Last Name: </label></td>
+                        <td><input id="id_lname" name="lastname"
+                                   type="text" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="id_password">Password: </label></td>
+                        <td><input id="id_password" name="password"
+                                   type="password" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="id_repassword">Retype Password: </label></td>
+                        <td><input id="id_repassword" name="repassword"
+                                   type="password" class="form-control"></td>
+                    </tr>
+                </table>
+            </fieldset>
+            <div class="register">
+                <button class="btn register" type="submit">Register Now</button>
+            </div>
+        </form>
+    </div>
+{%  endblock %}
