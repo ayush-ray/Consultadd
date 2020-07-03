@@ -1,179 +1,27 @@
 {%  extends 'base.html' %}
 {% block title %}Home{% endblock %}
-
+{% block css %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/css_styles.css" %}">
+{% endblock %}
 {% block content %}
-    <head>
-        <link rel="stylesheet" type="text/css" href="main.css">
-        <style>
-            .btn-group .button {
-                background-color: #008CBA; /* Green */
-                border: none;
-                color: white;
-                padding: 15px 32px;
-                margin: 13px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 16px;
-                cursor: pointer;
-                float: left;
-                cursor: pointer;
-                padding: 14px 40px;
-                width: 250px;
-                border: 1px black;
-            }
-            .btn-group .signout-button {
-                background-color: #555;
-                border: none;
-                color: white;
-                padding: 15px 32px;
-                margin: 13px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 16px;
-                cursor: pointer;
-                float: right;
-                padding: 14px 40px;
-                width: 250px;
-                border: 1px black;
-                right: 28px;
-            }
-
-            .btn-group .button:hover {
-                background-color: #23768e;
-            }
-
-
-            /* The popup form - hidden by default */
-            .form-popup {
-                display: none;
-                /*border: 3px solid #f1f1f1;*/
-                z-index: 9;
-                position: absolute;
-                top: 30%;
-                left: 35%;
-                margin-top: -50px;
-                margin-left: -50px;
-            }
-
-            /* Add styles to the form container */
-            .form-container {
-                max-width: 800px;
-                max-height: 800px;
-                padding: 10px;
-                background-color: white;
-                /*align:center;*/
-                position: fixed;
-                z-index: 999;
-                border: 3px solid #f1f1f1;
-            }
-
-            /* Full-width input fields */
-            .form-container input[type=text], .form-container input[type=text] {
-                width: 90%;
-                padding: 15px;
-                margin: 5px 0 22px 0;
-                border: none;
-                background: #f1f1f1;
-            }
-            .form-container input[type=textarea], .form-container textarea{
-                width: 90%;
-                height: 90%;
-                padding: 15px;
-                margin: 5px 0 22px 0;
-                border: none;
-                background: #f1f1f1;
-                font-family:arial;
-            }
-
-            /* When the inputs get focus, do something */
-            .form-container input[type=text]:focus, .form-container input[type=text]:focus {
-                background-color: #ddd;
-                outline: none;
-            }
-
-            .form-container input[type=textarea]:focus, .form-container textarea:focus {
-                background-color: #ddd;
-                outline: none;
-            }
-            /* Set a style for the submit/login button */
-            .form-container .btn {
-                background-color: #4CAF50;
-                color: white;
-                padding: 20px 24px;
-                border: none;
-                cursor: pointer;
-                width: 50%;
-                margin-bottom:10px;
-                opacity: 0.8;
-            }
-
-            /* Add a red background color to the cancel button */
-            .form-container .cancel {
-                background-color: red;
-            }
-
-            /* Add some hover effects to buttons */
-            .form-container .btn:hover, .open-button:hover {
-                opacity: 1;
-            }
-        </style>
-    </head>
-
     <h1>Congratulations! You have successfully signed in.</h1>
-
     <div class="btn-group">
         <button class="button" onclick="openCreateForm()">Create</button>
         <button class="button" onclick="openUpdateForm()">Update</button>
         <button class="button" onclick="openDeleteForm()">Delete</button>
         <button class="button" onclick="openViewMyForm()">View My Blogs</button>
-        <button class="button" onclick="openViewMyForm()">View All Blogs</button>
+        <button class="button" onclick="openViewAllForm()">View All Blogs</button>
         <button class="signout-button">Sign Out</button>
     </div>
-
     <br>
     <br>
     <br>
-    <div style="text-align: center">
-        <div class="form-popup" id="myForm" style="width: 100%; ">
-            <form action="POST" class="form-container">
-                <h1>Create Blog</h1>
+    {% include "create_blog.html" %}
+    {% include "update_blog.html" %}
+    {% include "delete_blog.html" %}
+    {% include "view_my_blog.html" %}
+    {% include "view_all_blog.html" %}
 
-                <div style = "text-align: left;width:100%">
-                    <label for="BlogName" style = "text-align: left;"><b>Blog Name: </b></label>
-                    <input type="text" placeholder="Enter Blog Name" name="blog_name" required>
-
-                    <label for="blog_content"><b >Content:  </b></label>
-                    <textarea placeholder="Enter Blog" name="blog_content" required></textarea>
-                </div>
-
-                <button type="submit" class="btn">Submit</button>
-                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-            </form>
-            <script>
-                function openCreateForm() {
-                    document.getElementById("myForm").style.display = "block";
-                }
-                function openUpdateForm() {
-                    document.getElementById("myForm").style.display = "block";
-                }
-                function openDeleteForm() {
-                    document.getElementById("myForm").style.display = "block";
-                }
-                function openViewMyForm() {
-                    document.getElementById("myForm").style.display = "block";
-                }
-                function openViewAllForm() {
-                    document.getElementById("myForm").style.display = "block";
-                }
-                function closeForm() {
-                    document.getElementById("myForm").style.display = "none";
-                }
-
-
-
-            </script>
-        </div>
-    </div>
+    <script type="application/javascript" src="{% static "js/control.js" %}"></script>
 {% endblock %}

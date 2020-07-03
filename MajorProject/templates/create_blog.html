@@ -1,0 +1,20 @@
+{% block create %}
+    <div style="text-align: center">
+        <div class="form-popup" id="myCreateForm" style="width: 100%; ">
+            <form action="POST" class="form-container">
+                <h1>Create Blog</h1>
+
+                <div style = "text-align: left;width:100%">
+                    <label for="BlogName" style = "text-align: left;"><b>Blog Name: </b></label>
+                    <input type="text" placeholder="Enter Blog Name" name="blog_name" required>
+
+                    <label for="blog_content"><b >Content:  </b></label>
+                    <textarea placeholder="Enter Blog" name="blog_content" required></textarea>
+                </div>
+
+                <button type="submit" class="btn">Submit</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
