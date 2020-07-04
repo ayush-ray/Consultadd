@@ -19,11 +19,13 @@ from django.conf.urls import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('login/', authorization_views.LoginView.as_view(template_name='users/login.html'), name='login'),
-    # path('logout/', authorization_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
     path('', include('login.urls', 'login')),
     path('home/', include('login.urls', 'login')),
     path('register/', include('login.urls', 'login')),
-    path('logout/', include('login.urls','login')),
-
+    path('logout/', include('login.urls', 'login')),
+    path('blogging', include('blog.urls', 'blog')),
+    path('show', include('blog.urls', 'blog')),
+    path('edit/<int:id>', include('blog.urls', 'blog')),
+    path('update/<int:id>', include('blog.urls', 'blog')),
+    path('delete/<int:id>', include('blog.urls', 'blog')),
 ]

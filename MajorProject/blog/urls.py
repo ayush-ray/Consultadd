@@ -1,11 +1,11 @@
 from django.urls import path
 from blog import views
 
+app_name = "blog"
 
 urlpatterns = [
-    path('blogging', views.emp),
-    path('show',views.show),
-    path('edit/<int:id>', views.edit),
-    path('update/<int:id>', views.update),
-    path('delete/<int:id>', views.destroy),
+    path('/', views.blogging, name="create"),
+    path('show', views.show, name="showall"),
+    path('update/<int:id>', views.update, name="update"),
+    path('delete/<int:id>', views.destroy, name="delete"),
 ]

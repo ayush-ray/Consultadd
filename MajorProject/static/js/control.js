@@ -1,6 +1,7 @@
 function openCreateForm() {
     closeForm();
     document.getElementById("myCreateForm").style.display = "block";
+
 }
 function openUpdateForm() {
     closeForm();

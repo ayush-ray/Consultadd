@@ -1,18 +1,18 @@
 {% block create %}
     <div style="text-align: center" class="center">
         <div class="form-popup" id="myCreateForm" style="width: 100%; ">
-            <form action="POST" class="form-container">
+            <form method="POST" action="{% url 'blog:create' %}" class="form-container">
+                {% csrf_token %}
                 <h1>Create Blog</h1>
-
                 <div style = "text-align: left;width:100%">
                     <label for id ="BlogName" style = "text-align: left;"><b>Blog Name: </b></label>
-                    <input type="text" placeholder="Enter Blog Name" name="blog_name" required>
+                    <p>{{ form.bname }}</p>
 
                     <label for id ="blog_content"><b >Content:  </b></label>
-                    <textarea placeholder="Enter Blog" name="blog_content" required></textarea>
+                    <p>{{ form.bcontent }}</p>
                 </div>
 
-                <button type="submit" class="btn">Submit</button>
+                <button type="submit" class="btn btn_create">Submit</button>
                 <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
             </form>
         </div>

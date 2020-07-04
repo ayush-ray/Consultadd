@@ -2,6 +2,8 @@ from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from blog.forms import BlogForm
+from blog.models import Blog
 
 
 # Create your views here.
@@ -23,7 +25,14 @@ def login_view(request):
 
 def home_view(request):
     if request.user.is_authenticated:
-        return render(request, "index.html")
+        if request.method == 'POST':
+            form = BlogForm(request.POST)
+            if form.is_valid():
+                # return render(request, "index.html", context={"form": form})
+                pass
+        else:
+            form = BlogForm()
+        return render(request, "index.html", context={"form": form})
 
 
 def register_view(request):
