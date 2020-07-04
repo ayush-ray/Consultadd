@@ -1,5 +1,4 @@
 {%  extends 'base.html' %}
-{% block title %}Home{% endblock %}
 {% block css %}
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static "css/css_styles.css" %}">
@@ -12,7 +11,7 @@
         <button class="button" onclick="openDeleteForm()">Delete</button>
         <button class="button" onclick="openViewMyForm()">View My Blogs</button>
         <button class="button" onclick="openViewAllForm()">View All Blogs</button>
-        <button class="signout-button">Sign Out</button>
+        <button class="signout-button" onclick="location.href='/logout'">Sign Out</button>
     </div>
     <br>
     <br>
