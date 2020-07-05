@@ -28,7 +28,6 @@ def home_view(request):
         if request.method == 'POST':
             form = BlogForm(request.POST)
             if form.is_valid():
-                # return render(request, "index.html", context={"form": form})
                 pass
         else:
             form = BlogForm()

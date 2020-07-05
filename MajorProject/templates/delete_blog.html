@@ -1,7 +1,8 @@
 {% block create %}
     <div style="text-align: center" class = "center">
         <div class="form-popup" id="myDeleteForm" style="width: 100%; ">
-            <form action="POST" class="form-container">
+            <form method="POST" action="{% url 'blog:delete' %}" class="form-container">
+                {% csrf_token %}
                 <h1>Delete Blog</h1>
 
                 <div style = "text-align: left;width:100%">

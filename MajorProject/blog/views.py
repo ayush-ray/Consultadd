@@ -20,6 +20,7 @@ def blogging(request):
             print("Form----->", form)
             try:
                 form.save()
+                return redirect("/home")
             except:
                 pass
 
@@ -32,7 +33,7 @@ def blogging(request):
 
 def show(request):
     blogs = Blog.objects.all()
-    # return render(request, "show.html", {'blogs': blogs})
+    return render(request, "show.html", {'blogs': blogs})
 
 
 def update(request, id):
@@ -40,11 +41,12 @@ def update(request, id):
     form = BlogForm(request.POST, instance=blog)
     if form.is_valid():
         form.save()
-        return redirect("/show")
+        # return redirect("/show")
     # return render(request, 'edit.html', {'blog': blog})
 
 
 def destroy(request, id):
+    print(id)
     blog = Blog.objects.get(id=id)
     blog.delete()
-    return redirect("/show")
+    # return redirect("/show")
