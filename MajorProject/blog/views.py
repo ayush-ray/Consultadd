@@ -2,28 +2,29 @@ from django.shortcuts import render, redirect
 from blog.forms import BlogForm
 from blog.models import Blog
 
-
 # Create your views here.
 def blogging(request):
     if request.method == "POST":
-        form = BlogForm(request.POST)
-        print(form)
-        print("hello")
+        data = {
+                    'uname': request.user.username,
+                    'bname': request.POST['bname'],
+                    'bcontent': request.POST['bcontent']
+                }
+        print(data)
+        form = BlogForm(data)
+
         if form.is_valid():
-            print("world")
-            bname = form.cleaned_data.get("bname")
-            bcontent = form.cleaned_data.get("bcontent")
-            uname = request.user.username
-            print(bname)
-            print(bcontent)
-            print(uname)
+            print("Form----->", form)
             try:
                 form.save()
                 return redirect('/show')
             except:
                 pass
+
     else:
+        print("Not valid form")
         form = BlogForm()
+
     return render(request, 'index.html', {'form': form})
 
 
@@ -45,3 +46,4 @@ def destroy(request, id):
     blog = Blog.objects.get(id=id)
     blog.delete()
     return redirect("/show")
+
