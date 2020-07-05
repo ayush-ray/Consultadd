@@ -1,11 +1,14 @@
 from django.shortcuts import render, redirect
 from blog.forms import BlogForm
 from blog.models import Blog
+import uuid
+
 
 # Create your views here.
 def blogging(request):
     if request.method == "POST":
         data = {
+                    'bid': uuid.uuid1(),
                     'uname': request.user.username,
                     'bname': request.POST['bname'],
                     'bcontent': request.POST['bcontent']
@@ -17,7 +20,6 @@ def blogging(request):
             print("Form----->", form)
             try:
                 form.save()
-                return redirect('/show')
             except:
                 pass
 
@@ -46,4 +48,3 @@ def destroy(request, id):
     blog = Blog.objects.get(id=id)
     blog.delete()
     return redirect("/show")
-
