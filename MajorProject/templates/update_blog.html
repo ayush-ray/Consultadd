@@ -1,15 +1,18 @@
 {% block update %}
     <div style="text-align: center" class = "center">
         <div class="form-popup" id="myUpdateForm" style="width: 100%; ">
-            <form action="POST" class="form-container">
+            <form method="POST" action="{% url 'blog:update' %}" class="form-container">
+                {% csrf_token %}
                 <h1>Update Blog</h1>
 
                 <div style = "text-align: left;width:100%">
                     <label for id="BlogName" style = "text-align: left;"><b>Blog Id: </b></label>
-                    <input type="text" placeholder="Enter Blog To Be Updated" name="blog_name" required>
+                    <p>{{ form.bid }}</p>
+{#                    <input type="text" placeholder="Enter Blog To Be Updated" name="blog_name" required>#}
 
                     <label for id ="blog_content"><b >Content:  </b></label>
-                    <textarea placeholder="Enter Updated Blog" name="blog_content" required></textarea>
+                    <p>{{ form.bcontent }}</p>
+{#                    <textarea placeholder="Enter Updated Blog" name="blog_content" required></textarea>#}
                 </div>
 
                 <button type="submit" class="btn btn_update" >Update</button>
