@@ -45,8 +45,8 @@ def update(request, id):
     # return render(request, 'edit.html', {'blog': blog})
 
 
-def destroy(request, id):
+def destroy(request):
     print(id)
     blog = Blog.objects.get(id=id)
     blog.delete()
-    # return redirect("/show")
+    return redirect("/home")

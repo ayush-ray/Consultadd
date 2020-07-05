@@ -23,7 +23,7 @@ urlpatterns = [
     path('home/', include('login.urls', 'login')),
     path('register/', include('login.urls', 'login')),
     path('logout/', include('login.urls', 'login')),
-    path('blogging', include('blog.urls', 'blog')),
+    path('create', include('blog.urls', 'blog')),
     path('show', include('blog.urls', 'blog')),
     path('edit/<int:id>', include('blog.urls', 'blog')),
     path('update/<int:id>', include('blog.urls', 'blog')),
