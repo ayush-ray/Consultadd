@@ -32,18 +32,12 @@ def show(request):
 
 
 def update(request):
-    bid = request.POST['bid']
-    blog = Blog.objects.get(bid=bid)
-    blog.bcontent = request.POST['bcontent']
-    blog.save()
-    return redirect("/home")
-    # blog = Blog.objects.get(id=id)
-    # form = BlogForm(request.POST, instance=blog)
-    # if form.is_valid():
-    #     form.save()
-    #     # return redirect("/show")
-    # # return render(request, 'edit.html', {'blog': blog})
-    pass
+    if request.method == "POST":
+        bid = request.POST['bid']
+        blog = Blog.objects.get(bid=bid)
+        blog.bcontent = request.POST['bcontent']
+        blog.save()
+        return redirect("/home")
 
 
 def destroy(request):

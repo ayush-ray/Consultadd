@@ -9,8 +9,8 @@
         <button class="button" onclick="openCreateForm()">Create</button>
         <button class="button" onclick="openUpdateForm()">Update</button>
         <button class="button" onclick="openDeleteForm()">Delete</button>
-        <button class="button" onclick="openViewMyForm()">View My Blogs</button>
-        <button class="button" onclick="openViewAllForm()">View All Blogs</button>
+        <button class="button" onclick="location.href='{% url 'blog:show' %}'">Show All Blogs</button>
+
         <button class="signout-button" onclick="location.href='/logout'">Sign Out</button>
     </div>
     <br>
@@ -19,8 +19,7 @@
     {% include "create_blog.html" %}
     {% include "update_blog.html" %}
     {% include "delete_blog.html" %}
-    {% include "view_my_blog.html" %}
-    {% include "view_all_blog.html" %}
+
 
     <script type="application/javascript" src="{% static "js/control.js" %}"></script>
 {% endblock %}

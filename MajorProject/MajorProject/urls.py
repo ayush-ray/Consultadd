@@ -25,7 +25,6 @@ urlpatterns = [
     path('logout/', include('login.urls', 'login')),
     path('create', include('blog.urls', 'blog')),
     path('show', include('blog.urls', 'blog')),
-    path('edit', include('blog.urls', 'blog')),
     path('update', include('blog.urls', 'blog')),
     path('delete', include('blog.urls', 'blog')),
 ]

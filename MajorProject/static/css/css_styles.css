@@ -45,13 +45,14 @@
     z-index: 9;
     position: absolute;
     top: 30%;
-    left: 35%;
+    left: 27%;
     margin-top: -50px;
     margin-left: -50px;
 }
 
 /* Add styles to the form container */
 .form-container {
+    width: 800px;
     max-width: 800px;
     max-height: 800px;
     padding: 10px;
@@ -118,3 +119,4 @@
     border: 3px black;
     padding: 10px;
 }
+
